@@ -5,10 +5,10 @@ with open("README.rst", "r") as fh:
     
 setuptools.setup(
     name='pastoke',
-    version='0.1.0',
+    version='0.1.1',
     author="streanger",
     author_email="divisionexe@gmail.com",
-    description="paste joke scritp",
+    description="paste jokes script",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/streanger/pastoke",

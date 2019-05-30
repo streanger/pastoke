@@ -1,5 +1,5 @@
 '''
-paste_log.py, version 1.0.1
+paste_log.py, version 0.1.1
 script for logging copy-paste content
 pyinstaller proper command:
     pyinstaller -F --noconsole paste_log.py
@@ -66,10 +66,12 @@ def clear_clipboard(timeout=0.01):
 def replace_clipboard(search, thing, timeout=0.01):
     ''' control clipboard and replace with specified phrase '''
     hide_console()
+    last_content = ""
     while True:
         content = pyperclip.paste()
-        if content == search:       # this is the simplest condition; thinkg of regex etc
-            pyperclip.copy(thing)
+        if content != last_content:       # this is the simplest condition; thinkg of regex etc
+            pyperclip.copy(content.replace(search, thing))
+            last_content = content
         time.sleep(timeout)
     return True
 
